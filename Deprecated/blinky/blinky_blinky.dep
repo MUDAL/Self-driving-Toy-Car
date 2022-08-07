@@ -1,0 +1,21 @@
+Dependencies for Project 'blinky', Target 'blinky': (DO NOT MODIFY !)
+F (.\startup_rvmdk.S)(0x5EF4A652)(--cpu Cortex-M4.fp --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-I "C:\Keil V4\ARM\RV31\INC"-I "C:\Keil V4\ARM\CMSIS\Include"-I "C:\Keil V4\ARM\Inc\Luminary"-o .\rvmdk\startup_rvmdk.o --depend .\rvmdk\startup_rvmdk.d)
+F (.\main.c)(0x62F0260A)(-c --cpu Cortex-M4.fp -D__EVAL -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I..\..\..\.. --c99-I "C:\Keil V4\ARM\RV31\INC"-I "C:\Keil V4\ARM\CMSIS\Include"-I "C:\Keil V4\ARM\Inc\Luminary"-o .\rvmdk\main.o --omf_browse .\rvmdk\main.crf --depend .\rvmdk\main.d)
+I (C:\Keil V4\ARM\ARMCC\include\stdbool.h)(0x51C827C4)
+I (C:\Keil V4\ARM\ARMCC\include\stdint.h)(0x51C827C4)
+I (..\..\..\..\inc/hw_memmap.h)(0x5EF4A688)
+I (..\..\..\..\inc/hw_types.h)(0x5EF4A688)
+I (..\..\..\..\inc/hw_sysCtl.h)(0x5EF4A688)
+I (..\..\..\..\inc/hw_pwm.h)(0x5EF4A688)
+I (..\..\..\..\inc/tm4c123gh6pm.h)(0x5EF4A688)
+I (..\..\..\..\driverlib/timer.h)(0x5EF4A63C)
+I (..\..\..\..\driverlib/gpio.h)(0x5EF4A63B)
+I (..\..\..\..\driverlib/pwm.h)(0x5EF4A63B)
+I (..\..\..\..\driverlib/uart.h)(0x5EF4A63C)
+I (..\..\..\..\driverlib/systick.h)(0x5EF4A63C)
+I (..\..\..\..\driverlib/sysCtl.h)(0x5EF4A63C)
+I (..\..\..\..\driverlib/pin_map.h)(0x5F0ED148)
+I (..\..\..\..\driverlib/rom.h)(0x5F1A91E6)
+I (..\..\..\..\driverlib/rom_map.h)(0x5EF4A63C)
+F (..\..\..\..\driverlib\rvmdk\driverlib.lib)(0x5EF4A63C)()
+F (.\readme.txt)(0x5EF4A652)()
