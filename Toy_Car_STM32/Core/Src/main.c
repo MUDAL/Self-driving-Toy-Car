@@ -26,11 +26,11 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-enum
+enum ServoPos
 {
-  EXTREME_POS1 = 800,
-  MID_POS = 1200,
-  EXTREME_POS2 = 1600
+  EXTREME_POS1 = 800, //1ms pulse
+  MID_POS = 1200, //1.5ms pulse
+  EXTREME_POS2 = 1600 //2ms pulse
 };
 /* USER CODE END PTD */
 
