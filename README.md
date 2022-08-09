@@ -11,10 +11,20 @@ The TM4C123 code was developed in Keil uVision 4 using an existing Tivaware proj
 template. All application codes can be found in **main.c**.  
 
 ## How it works  
-The car is controlled from a app using Bluetooth. Once it is given the command to start, it does the following:  
+The car is controlled from an app using Bluetooth. Once it is given the command to start, it does the following:  
 1. Moves forward  
 2. Sweeps servo motor's shaft every 2 seconds  
 3. Toggles an LED every 2 seconds  
+
+## Components  
+1. STM32 Bluepill board  
+2. L298N module  
+3. Two 7805 regulators
+4. SG90 servo motor  
+5. 5mm LED + 2k resistor
+6. Two TT gear motors  
+7. On/Off switch  
+8. Two 18650 Li-ion batteries  
 
 The final prototype was developed using an STM32 bluepill board.  
 The code was developed using STM32Cube HAL drivers in the STM32CubeIDE.  
