@@ -31,6 +31,11 @@ enum ServoPos
 	EXTREME_POS2 = 4000 //2ms pulse
 };
 
+static uint32_t GetTick(void)
+{
+	return MAP_TimerValueGet(TIMER0_BASE,TIMER_A);	
+}
+
 static void Sys_Init(void)
 {
 	//Clock configuration
@@ -133,7 +138,7 @@ int main(void)
 			case '0':
 				Motors_Move();
 				sweepShaft = 1;
-				currentTick = MAP_TimerValueGet(TIMER0_BASE,TIMER_A);
+				currentTick = GetTick();
 				break;
 			case '1':
 				Motors_Stop();
@@ -144,12 +149,12 @@ int main(void)
 		if(sweepShaft)
 		{
 			const uint32_t sweepTime = 32000000; //2 timer periods = 2 secs
-			uint32_t tickDiff = MAP_TimerValueGet(TIMER0_BASE,TIMER_A) - currentTick;
+			uint32_t tickDiff = GetTick() - currentTick;
 			if(tickDiff >= sweepTime)
 			{
 				Servo_SetPosition(servoPos[servoPosIndex]);
 				servoPosIndex ^= 1;
-				currentTick = MAP_TimerValueGet(TIMER0_BASE,TIMER_A);
+				currentTick = GetTick();
 			}
 		}
 		else
