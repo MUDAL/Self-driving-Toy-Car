@@ -42,8 +42,7 @@ enum ServoDir
 enum AppCmd
 {
   START = '0',
-  STOP = '1',
-  REVERSE = '2'
+  STOP = '1'
 };
 enum MotorSpeed
 {
@@ -58,7 +57,7 @@ enum MotorSpeed
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define OBSTACLE_DIST	25
+#define OBSTACLE_DIST	25 //centimeters
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -593,10 +592,6 @@ void StartTaskMain(void const * argument)
 	osThreadSuspend(Task_BlinkHandle);
 	HAL_GPIO_WritePin(LED_GPIO_Port,LED_Pin,GPIO_PIN_RESET);
 	Stop();
-	break;
-      case REVERSE:
-	osThreadSuspend(Task_MotionHandle);
-	Reverse();
 	break;
     }
   }
