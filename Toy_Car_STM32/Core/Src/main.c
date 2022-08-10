@@ -58,6 +58,7 @@ enum MotorSpeed
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+#define OBSTACLE_DIST	25
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -135,20 +136,20 @@ void Reverse(void)
 void Turn_Right(void)
 {
   __HAL_TIM_SET_COMPARE(&htim3,TIM_CHANNEL_3,SPEED_60PERCENT);
-  __HAL_TIM_SET_COMPARE(&htim3,TIM_CHANNEL_4,SPEED_40PERCENT);
+  __HAL_TIM_SET_COMPARE(&htim3,TIM_CHANNEL_4,SPEED_60PERCENT);
   HAL_GPIO_WritePin(leftMotor_GPIO_Port,leftMotor_Pin,GPIO_PIN_SET);
-  HAL_GPIO_WritePin(rightMotor_GPIO_Port,rightMotor_Pin,GPIO_PIN_SET);
+  HAL_GPIO_WritePin(rightMotor_GPIO_Port,rightMotor_Pin,GPIO_PIN_RESET);
   HAL_GPIO_WritePin(leftMotor2_GPIO_Port,leftMotor2_Pin,GPIO_PIN_RESET);
-  HAL_GPIO_WritePin(rightMotor2_GPIO_Port,rightMotor2_Pin,GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(rightMotor2_GPIO_Port,rightMotor2_Pin,GPIO_PIN_SET);
 }
 
 void Turn_Left(void)
 {
-  __HAL_TIM_SET_COMPARE(&htim3,TIM_CHANNEL_3,SPEED_40PERCENT);
+  __HAL_TIM_SET_COMPARE(&htim3,TIM_CHANNEL_3,SPEED_60PERCENT);
   __HAL_TIM_SET_COMPARE(&htim3,TIM_CHANNEL_4,SPEED_60PERCENT);
-  HAL_GPIO_WritePin(leftMotor_GPIO_Port,leftMotor_Pin,GPIO_PIN_SET);
+  HAL_GPIO_WritePin(leftMotor_GPIO_Port,leftMotor_Pin,GPIO_PIN_RESET);
   HAL_GPIO_WritePin(rightMotor_GPIO_Port,rightMotor_Pin,GPIO_PIN_SET);
-  HAL_GPIO_WritePin(leftMotor2_GPIO_Port,leftMotor2_Pin,GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(leftMotor2_GPIO_Port,leftMotor2_Pin,GPIO_PIN_SET);
   HAL_GPIO_WritePin(rightMotor2_GPIO_Port,rightMotor2_Pin,GPIO_PIN_RESET);
 }
 
@@ -172,20 +173,6 @@ uint32_t Sensor_GetDistance(void)
     distanceCM = (float)pulseWidth * htim4.Init.Prescaler * 1000000 / (58 * sysClockFreq);
   }
   return distanceCM;
-}
-
-uint8_t IndexWithLargestElement(uint32_t* distArr)
-{
-  uint8_t largest = distArr[0];
-  uint8_t largestIndex = 0;
-  for(uint8_t i = 1; i < 3; i++)
-  {
-    if(largest < distArr[i])
-    {
-      largestIndex = i;
-    }
-  }
-  return largestIndex;
 }
 /* USER CODE END 0 */
 
@@ -646,32 +633,40 @@ void StartTaskMotion(void const * argument)
 {
   /* USER CODE BEGIN StartTaskMotion */
   /* Infinite loop */
-  uint32_t distances[] = {0,0,0}; //left,mid,right
-  const uint16_t servoPos[] = {EXTREME_POS2,MID_POS,EXTREME_POS1};
+  uint32_t midDistance = 0;
+  uint32_t leftDistance = 0;
+  uint32_t rightDistance = 0;
   while(1)
   {
     //Handle obstacle avoidance
-    //turn servo through all positions and read the distances
-    for(uint8_t i = 0; i < 3; i++)
+    Move_Forward();
+    midDistance = Sensor_GetDistance();
+    if(midDistance <= OBSTACLE_DIST)
     {
-      Servo_SetPosition(servoPos[i]);
-      osDelay(500);
-      distances[i] = Sensor_GetDistance();
-    }
-    Servo_SetPosition(MID_POS);
-    //follow the direction of sensor with largest distance
-    uint8_t index = IndexWithLargestElement(distances);
-    switch(index)
-    {
-      case LEFT:
+      //Stop momentarily
+      Stop();
+      //check right, measure distance
+      Servo_SetPosition(EXTREME_POS1);
+      osDelay(700);
+      rightDistance = Sensor_GetDistance();
+      //check left, measure distance
+      Servo_SetPosition(EXTREME_POS2);
+      osDelay(700);
+      leftDistance = Sensor_GetDistance();
+      //Reverse a bit
+      Reverse();
+      osDelay(350);
+      //Follow path that is free
+      if(leftDistance > rightDistance)
+      {
 	Turn_Left();
-	break;
-      case MIDDLE:
-	Move_Forward();
-	break;
-      case RIGHT:
+      }
+      else
+      {
 	Turn_Right();
-	break;
+      }
+      Servo_SetPosition(MID_POS);
+      osDelay(250);
     }
   }
   /* USER CODE END StartTaskMotion */
