@@ -61,6 +61,16 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define servo_Pin GPIO_PIN_0
 #define servo_GPIO_Port GPIOA
+#define leftMotor2_Pin GPIO_PIN_4
+#define leftMotor2_GPIO_Port GPIOA
+#define rightMotor2_Pin GPIO_PIN_5
+#define rightMotor2_GPIO_Port GPIOA
+#define trig_Pin GPIO_PIN_6
+#define trig_GPIO_Port GPIOA
+#define leftPWM_Pin GPIO_PIN_0
+#define leftPWM_GPIO_Port GPIOB
+#define rightPWM_Pin GPIO_PIN_1
+#define rightPWM_GPIO_Port GPIOB
 #define LED_Pin GPIO_PIN_11
 #define LED_GPIO_Port GPIOB
 #define leftMotor_Pin GPIO_PIN_14
@@ -69,6 +79,8 @@ void Error_Handler(void);
 #define rightMotor_GPIO_Port GPIOB
 #define bluetooth_Pin GPIO_PIN_10
 #define bluetooth_GPIO_Port GPIOA
+#define echo_Pin GPIO_PIN_6
+#define echo_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
