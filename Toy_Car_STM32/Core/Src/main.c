@@ -33,12 +33,6 @@ enum ServoPos
   MID_POS = 1200, //1.5ms pulse
   EXTREME_POS2 = 1600 //2ms pulse
 };
-enum ServoDir
-{
-  LEFT = 0,
-  MIDDLE,
-  RIGHT
-};
 enum AppCmd
 {
   START = '0',
