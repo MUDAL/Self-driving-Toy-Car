@@ -17,7 +17,8 @@ The car is controlled from an app using Bluetooth. Once it is given the command 
 3. Toggles an LED every 2 seconds  
 
 ## How it works (Current version)  
-The car is still controlled by the app. But more features have been added.  
+Once the app is used to start the car, the car moves autonomously and avoids obstacles.  
+The app can also be used to stop the car at any moment in real-time.  
 An ultrasonic sensor is mounted on the servo to look in different directions in order  
 to avoid obstacles (although the field of view is limited).  
 
