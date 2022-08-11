@@ -20,7 +20,7 @@ The car is controlled from an app using Bluetooth. Once it is given the command 
 Once the app is used to start the car, the car moves autonomously and avoids obstacles.  
 The app can also be used to stop the car at any moment in real-time.  
 An ultrasonic sensor is mounted on the servo to look in different directions in order  
-to avoid obstacles (although the field of view is limited).  
+to avoid obstacles.  
 
 ## Components  
 1. STM32 Bluepill board  
