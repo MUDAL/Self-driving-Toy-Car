@@ -40,4 +40,19 @@ RTOS API (v1) was also used to guarantee real-time operation.
 ## The app  
 The bluetooth app was made using MIT App Inventor.  
 
+## Pinouts (Component - STM32)  
+1. Servo - PA0    
+2. LED - PB11   
+3. Left motor pin 1 - PB14       
+4. Left motor pin 2 - PA4     
+5. Right motor pin 1 - PB15      
+6. Right motor pin 2 - PA5    
+7. Left motor PWM pin - PB0    
+8. Right motor PWM pin - PB1    
+9. Bluetooth - PA10    
+10. Ultrasonic sensor Trig pin - PA6   
+11. Ultrasonic sensor Echo pin - PB6    
+
+
+
 
