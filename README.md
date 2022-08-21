@@ -25,13 +25,14 @@ to avoid obstacles.
 ## Components  
 1. STM32 Bluepill board  
 2. L298N module  
-3. Two 7805 regulators
+3. Two 7805 regulators (one for HC05 and one for SG90 servo)  
 4. SG90 servo motor  
 5. 5mm LED + 2k resistor
 6. Two TT gear motors  
 7. On/Off switch  
 8. Two 18650 Li-ion batteries  
-9. HCSR04 ultrasonic sensor (current version)
+9. HCSR04 ultrasonic sensor (current version)  
+10. HC05 Bluetooth module  
 
 The final prototype was developed using an STM32 bluepill board.  
 The code was developed using STM32Cube HAL drivers in the STM32CubeIDE. The generic CMSIS  
