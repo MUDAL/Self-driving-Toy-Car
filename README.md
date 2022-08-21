@@ -28,7 +28,7 @@ to avoid obstacles.
 3. Two 7805 regulators (one for HC05 and one for SG90 servo)  
 4. SG90 servo motor  
 5. 5mm LED + 2k resistor
-6. Two TT gear motors  
+6. Two TT gear motors with wheels   
 7. On/Off switch  
 8. Two 18650 Li-ion batteries  
 9. HCSR04 ultrasonic sensor (current version)  
