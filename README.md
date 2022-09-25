@@ -61,6 +61,8 @@ The bluetooth app was made using MIT App Inventor.
 10. Ultrasonic sensor Trig pin - PA6   
 11. Ultrasonic sensor Echo pin - PB6    
 
+## Prototype  
+![20220812_085327](https://user-images.githubusercontent.com/46250887/192157650-8e8e15c8-9b4d-48ea-b3fd-8a9b424abe4f.jpg)
 
 
 
