@@ -3,10 +3,10 @@
 Basic toy car project for a young relative.  
 
 Initially developed firmware using an STM8S105 board (code worked) but the chip got fried due to some power issues.  
-Decided to use a TI TM4C123 I had lying around. Developed the code using the TivaWare library and everything worked well 
-until the USB port got damaged and for some reason, the board doesn't seem to work under external power.
+I decided to use a TI TM4C123 as a replacement. I developed the code using the TivaWare library and everything worked well 
+until the USB port got damaged.
 
-The STM8 and TM4C123 codes are in the Deprecated folder as they won't be used for the final prototype.  
+The STM8 and TM4C123 codes are in the Deprecated folder.  
 The TM4C123 code was developed in Keil uVision 4 using an existing Tivaware project (called blinky) as a  
 template. All application codes can be found in **main.c**.  
 
@@ -41,12 +41,12 @@ the servo and HC05 have separate power sources because the current consumption o
 the HC05 to keep resetting itself if both were powered by the same source.  The TT gear motors are routed  
 directly to the 7.4v.  
 
-The final prototype was developed using an STM32 bluepill board.  
+The final prototype was developed using an STM32 Blue pill board.  
 The code was developed using STM32Cube HAL drivers in the STM32CubeIDE. The generic CMSIS  
 RTOS API (v1) was also used to guarantee real-time operation.  
 
 ## The app  
-The bluetooth app was made using MIT App Inventor.  
+The Bluetooth app was made using MIT App Inventor.  
 
 ## Pinouts (Component - STM32)  
 1. Servo - PA0    
