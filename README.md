@@ -35,7 +35,7 @@ to avoid obstacles.
 10. HC05 Bluetooth module  
 
 ## Power supply  
-The 7.4v from the two Li-ion batteries is regulated to 5v using 7805 regulators. One of the  
+The 7.4v from the two Li-ion batteries is regulated to 5v using 7805 regulators. One of the   
 regulators powers the STM32 Blue Pill, HCSR04, and HC05 module. The other regulator powers the SG90 servo. Both   
 the servo and HC05 have separate power sources because the current consumption of the servo can cause  
 the HC05 to keep resetting itself if both were powered by the same source.  The TT gear motors are routed  
