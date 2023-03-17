@@ -2,7 +2,7 @@
 
 Basic toy car project for a young relative.  
 
-Initially developed firmware using an STM8S105 board (code worked) but the chip got fried due to some power issues.  
+Initially developed the firmware for an STM8S105 board (code worked) but the chip got destroyed due to some power issues.  
 I decided to use a TI TM4C123 as a replacement. I developed the code using the TivaWare library and everything worked well 
 until the USB port got damaged.
 
@@ -45,7 +45,7 @@ The final prototype was developed using an STM32 Blue pill board.
 The code was developed using STM32Cube HAL drivers in the STM32CubeIDE. The generic CMSIS  
 RTOS API (v1) was also used to guarantee real-time operation.  
 
-## The app  
+## The mobile application   
 The Bluetooth app was made using MIT App Inventor.  
 
 ## Pinouts (Component - STM32)  
