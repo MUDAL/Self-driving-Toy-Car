@@ -23,7 +23,7 @@ An ultrasonic sensor is mounted on the servo to look in different directions in 
 to avoid obstacles.  
 
 ## Components  
-1. STM32 Bluepill board  
+1. STM32 Blue Pill board  
 2. L298N module  
 3. Two 7805 regulators (one for HC05 and one for SG90 servo)  
 4. SG90 servo motor  
@@ -36,12 +36,12 @@ to avoid obstacles.
 
 ## Power supply  
 The 7.4v from the two Li-ion batteries is regulated to 5v using 7805 regulators. One of the  
-regulators powers the Bluepill, HCSR04, and HC05 module. The other regulator powers the SG90 servo. Both   
+regulators powers the STM32 Blue Pill, HCSR04, and HC05 module. The other regulator powers the SG90 servo. Both   
 the servo and HC05 have separate power sources because the current consumption of the servo can cause  
 the HC05 to keep resetting itself if both were powered by the same source.  The TT gear motors are routed  
 directly to the 7.4v.  
 
-The final prototype was developed using an STM32 Blue pill board.  
+The final prototype was developed using an STM32 Blue Pill board.  
 The code was developed using STM32Cube HAL drivers in the STM32CubeIDE. The generic CMSIS  
 RTOS API (v1) was also used to guarantee real-time operation.  
 
